@@ -15,6 +15,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/vendor
 !/log/.keep
 !/tmp/.keep
 
@@ -40,5 +41,3 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Ignore vendor
-/vendor
