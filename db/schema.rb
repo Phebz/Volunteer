@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_155157) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "organization_id", null: false
-    t.string "type"
+    t.string "user_type"
     t.string "first_name"
     t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true

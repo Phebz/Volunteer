@@ -10,19 +10,19 @@ valentin = User.create(
   first_name: "Valentin",
   last_name: "Birault",
   email: "biraultvalentin@gmail.com",
-  encrypted_password: "123456"
-  type: "admin_organization"
+  password: "123456",
+  user_type: "admin_organization"
 )
 
-pierre = User.create(
+pierre = User.create!(
   first_name: "Pierre",
   last_name: "Hervé-Baz",
   email: "pierrehervebazin@gmail.com",
-  encrypted_password: "123456"
-  type: "volunteer"
+  password: "123456",
+  user_type: "volunteer"
 )
 
-Organization.create(
+orgas = Organization.create(
   [
     {
       name: "Volunteering World",
@@ -37,6 +37,31 @@ Organization.create(
       location: "Barcelona",
       address: "60 carrer de Viladomat, 1-4",
       user_id: valentin.id
+    }
+  ]
+)
+
+Mission.create(
+  [
+    {
+      name: "Distribution of food",
+      description: "Give an hand to our association during few hours to help us hand out foods and materials",
+      capacity: 5,
+      location: "Paris",
+      address: "14 ème, albert street",
+      start_date: DateTime.now + 5.days,
+      end_date: DateTime.now + 3.hours + 5.days,
+      organization_id: orgas[1].id
+    },
+    {
+      name: "Distribution of goods",
+      description: "Give an hand to our association during few hours to help us hand out foods and materials",
+      capacity: 5,
+      location: "Paris",
+      address: "17 ème, romane street",
+      start_date: DateTime.now + 5.days,
+      end_date: DateTime.now + 3.hours + 5.days,
+      organization_id: orgas[1].id
     }
   ]
 )
