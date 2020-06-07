@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  ressources :missions
-  ressources :organizations
+  resources :missions
+  resources :organizations
 end
