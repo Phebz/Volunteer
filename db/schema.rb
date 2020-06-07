@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_153621) do
+ActiveRecord::Schema.define(version: 2020_06_07_155157) do
 
   create_table "missions", force: :cascade do |t|
     t.string "name"
@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 2020_06_07_153621) do
     t.integer "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "users_id", null: false
+    t.integer "user_id", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["organization_type", "organization_id"], name: "index_missions_on_organization_type_and_organization_id"
-    t.index ["users_id"], name: "index_missions_on_users_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -48,11 +50,25 @@ ActiveRecord::Schema.define(version: 2020_06_07_153621) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "organization_id", null: false
+    t.string "type"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["organization_id"], name: "index_users_on_organization_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "missions", "users", column: "users_id"
+  create_table "working_days", force: :cascade do |t|
+    t.string "day"
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "mission_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mission_id"], name: "index_working_days_on_mission_id"
+  end
+
+  add_foreign_key "missions", "users"
   add_foreign_key "users", "organizations"
+  add_foreign_key "working_days", "missions"
 end
