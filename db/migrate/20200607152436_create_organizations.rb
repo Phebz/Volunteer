@@ -5,7 +5,7 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :location
       t.string :address
-      t.references :user, polymorphic: true, null: false
+      t.references :user 
 
       t.timestamps
     end

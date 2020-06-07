@@ -4,7 +4,7 @@ class CreateWorkingDays < ActiveRecord::Migration[6.0]
       t.string :day
       t.time :start_time
       t.time :end_time
-      t.references :mission, null: false, foreign_key: true
+      t.references :mission, foreign_key: true
 
       t.timestamps
     end

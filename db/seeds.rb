@@ -22,6 +22,13 @@ pierre = User.create!(
   user_type: "volunteer"
 )
 
+puts '-----------------------------------------'
+puts valentin.name
+puts pierre.name
+puts '-----------------------------------------'
+puts 'Users created !'
+
+
 orgas = Organization.create(
   [
     {
@@ -41,6 +48,14 @@ orgas = Organization.create(
   ]
 )
 
+puts '-----------------------------------------'
+puts Organization.first
+
+puts '-----------------------------------------'
+puts Organization.last
+
+puts 'Organizations created !'
+
 Mission.create(
   [
     {
@@ -51,7 +66,8 @@ Mission.create(
       address: "14 ème, albert street",
       start_date: DateTime.now + 5.days,
       end_date: DateTime.now + 3.hours + 5.days,
-      organization_id: orgas[1].id
+      organization_id: Organization.first.id,
+      user_id: pierre.id
     },
     {
       name: "Distribution of goods",
@@ -61,7 +77,15 @@ Mission.create(
       address: "17 ème, romane street",
       start_date: DateTime.now + 5.days,
       end_date: DateTime.now + 3.hours + 5.days,
-      organization_id: orgas[1].id
+      organization_id: Organization.last.id,
+      user_id: nil
     }
   ]
 )
+
+puts '---------------------------------'
+puts Mission.first.name
+puts Mission.last.name
+
+puts '---------------------------------'
+puts 'Missions created'

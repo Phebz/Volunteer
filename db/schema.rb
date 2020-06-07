@@ -18,14 +18,13 @@ ActiveRecord::Schema.define(version: 2020_06_07_155157) do
     t.integer "capacity"
     t.string "location"
     t.string "address"
-    t.string "organization_type", null: false
-    t.integer "organization_id", null: false
+    t.integer "organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.date "start_date"
     t.date "end_date"
-    t.index ["organization_type", "organization_id"], name: "index_missions_on_organization_type_and_organization_id"
+    t.index ["organization_id"], name: "index_missions_on_organization_id"
     t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
@@ -34,11 +33,10 @@ ActiveRecord::Schema.define(version: 2020_06_07_155157) do
     t.text "description"
     t.string "location"
     t.string "address"
-    t.string "user_type", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_type", "user_id"], name: "index_organizations_on_user_type_and_user_id"
+    t.index ["user_id"], name: "index_organizations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_155157) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_id", null: false
+    t.integer "organization_id"
     t.string "user_type"
     t.string "first_name"
     t.string "last_name"
@@ -62,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_155157) do
     t.string "day"
     t.time "start_time"
     t.time "end_time"
-    t.integer "mission_id", null: false
+    t.integer "mission_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mission_id"], name: "index_working_days_on_mission_id"

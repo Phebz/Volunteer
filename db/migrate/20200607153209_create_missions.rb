@@ -6,8 +6,8 @@ class CreateMissions < ActiveRecord::Migration[6.0]
       t.integer :capacity
       t.string :location
       t.string :address
-      t.references :organization, polymorphic: true, null: false
-
+      t.references :organization
+      
       t.timestamps
     end
   end
