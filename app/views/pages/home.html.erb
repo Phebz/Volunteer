@@ -1,2 +1,13 @@
-<div>BONJOUR PIERRE</div>
-<div><%= image_tag("troll.png") %></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button><%= link_to "login", new_user_session_url %></button>
+    <% if user_signed_in? %>
+      <button><%= link_to "Disconnect", destroy_user_session_url %></button>
+    <% end %>
+</body>
+</html>

@@ -16,15 +16,15 @@ valentin = User.create(
 
 pierre = User.create!(
   first_name: "Pierre",
-  last_name: "Hervé-Baz",
+  last_name: "Hervé-Bazin",
   email: "pierrehervebazin@gmail.com",
   password: "123456",
   user_type: "volunteer"
 )
 
 puts '-----------------------------------------'
-puts valentin.name
-puts pierre.name
+puts valentin.full_name
+puts pierre.full_name
 puts '-----------------------------------------'
 puts 'Users created !'
 
