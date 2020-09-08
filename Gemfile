@@ -21,6 +21,7 @@ gem 'webpacker', '~> 4.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 # Devise 
 gem 'devise'
 # Pundit 
@@ -35,8 +36,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
+  # Testing gem for pundit
+  gem 'pundit-matchers', '~> 1.6.0'
+  # Testing part
   gem 'rspec-rails'
+  # Styling conventions
+  gem 'rubocop', require: false
+  # Testing gem to help on rspec
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
