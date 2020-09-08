@@ -12,5 +12,5 @@ Helping volunteer and associations finding matching missions (short or long term
 
 ## DB - schema
 
-Run `rake generate_erd` to regenerate (must have graphvis).
-![](/erd.png)
+Run `rails generate_erd` to regenerate (must have graphvis).
+![](/app/assets/images/erd.png)
