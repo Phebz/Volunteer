@@ -2,9 +2,9 @@
 
 ##  Getting Started
 
-Ruby version: 2.7.1
+- Ruby version: 2.7.1
 
-Rails version: 6.0.3
+- Rails version: 6.0.3
 
 ## Purpose of the APP
 
