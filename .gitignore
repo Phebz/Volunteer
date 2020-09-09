@@ -42,5 +42,5 @@ yarn-debug.log*
 .yarn-integrity
 
 # DS files 
-.DS_Store
+/.DS_Store
 

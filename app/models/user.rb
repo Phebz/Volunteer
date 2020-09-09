@@ -12,9 +12,9 @@ class User < ApplicationRecord
 
   belongs_to :organization, optional: true
 
-  validates :first_name, presence: true, inclusion: { case_sensitive: false }, uniqueness: true
-  validates :last_name, presence: true, inclusion: { case_sensitive: false }, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true, case_sensitive: false, uniqueness: true
+  validates :last_name, presence: true, case_sensitive: false, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   validates :user_type, presence: true, inclusion: { in: %w[admin_organization user_organization volunteer].freeze }
 
