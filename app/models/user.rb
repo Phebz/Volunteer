@@ -16,7 +16,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true, case_sensitive: false, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :user_type, presence: true, inclusion: { in: %w[admin_organization user_organization volunteer].freeze }
+  TYPE_OF_USER = %w[admin_organization user_organization volunteer].freeze
+
+  validates :user_type, presence: true, inclusion: { in: TYPE_OF_USER }
 
   def full_name
     "#{first_name} #{last_name}"
